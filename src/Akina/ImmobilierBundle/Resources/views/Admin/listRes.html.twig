@@ -32,7 +32,7 @@ Liste des reservations
 </tr>
 </thead>
 <tbody>
-{%for reserve in reservations%}
+{% for reserve in reservations %}
 <tr>
 <td>
 
@@ -41,11 +41,11 @@ Liste des reservations
 
 <td>{{reserve.Client.Prenom}} {{reserve.Client.Nom}}</td>
 <td><a href="{{path('contrat',{'id':reserve.id,'bien':reserve.Bien.id})}}">
-{%if reserve.etat == 1%}
+{% if reserve.etat == 1 %}
 Validée
 {% else %}
 Non validée
-{% endif%}
+{% endif %}
 </a></td>
 <td>{{reserve.dateDeReservation}}</td>
 
@@ -58,10 +58,9 @@ Non validée
 <td></td>
 </tr>
 
-{%else%}
 <td colspan="6">Aucun utilisateur</td>
 
-{%endfor%}
+{% endfor %}
 </tbody>
 </table>
 </div>
