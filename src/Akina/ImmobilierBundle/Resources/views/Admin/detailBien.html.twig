@@ -1,0 +1,58 @@
+{% extends "::LayoutAdmin/layout.html.twig" %}
+
+
+  {% block biens %}
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
+  <style>
+
+.tabu {
+
+    border-radius:3px;
+ 
+    height:400px;
+    
+ 
+}
+span{
+   
+    
+}
+
+</style>
+<h3>
+Voir les détails sur :
+</h3>
+<div class="container tabu">
+<div id="tabs">
+  <ul>
+    <li class="tabI"><a href="#tabs-1">Le bien</a></li>
+    <li class="tabI"><a href="#tabs-2">Le propriétaire</a></li>
+    <li class="tabI"><a href="#tabs-3">Le client</a></li>
+    <li class="tabI"><a href="#tabs-4">La réservation</a></li>
+  </ul>
+    {%for reserve in detail%}
+  <div id="tabs-1">
+  <img src="{{ asset('uploads/images/' ~ reserve.image) }}" height="100px" width="250px">
+
+  </div>
+  <div id="tabs-2">
+  
+  </div>
+  <div id="tabs-3">
+  
+  </div>
+  <div id="tabs-4">
+   </div>
+ {%endfor%}
+ 
+  </div>
+</div>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endblock %}

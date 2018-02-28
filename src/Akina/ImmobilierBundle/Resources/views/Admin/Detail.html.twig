@@ -1,0 +1,79 @@
+{% extends "::LayoutAdmin/layout.html.twig" %}
+
+
+  {% block biens %}
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
+  <style>
+
+.tabu {
+
+    border-radius:3px;
+ 
+    height:400px;
+    
+ 
+}
+span{
+   
+    
+}
+
+</style>
+<h3>
+Voir les détails sur :
+</h3>
+<div class="container tabu">
+<div id="tabs">
+  <ul>
+    <li class="tabI"><a href="#tabs-1">Le bien</a></li>
+    <li class="tabI"><a href="#tabs-2">Le propriétaire</a></li>
+    <li class="tabI"><a href="#tabs-3">Le client</a></li>
+    <li class="tabI"><a href="#tabs-4">La réservation</a></li>
+  </ul>
+    {%for reserve in detail%}
+  <div id="tabs-1">
+  <table class="table table-bordred table-striped table-inverse display">
+  
+    <tr><td><strong>Nom du bien    </strong></td><td><span>{{reserve.Bien.nomBien }}        </span>     </td></tr>
+    <tr><td><strong>Description    </strong></td><td><span>{{reserve.Bien.description }}        </span> </td></tr>
+    <tr><td><strong>Prix           </strong></td><td><span>{{reserve.Bien.prix }}              </span>  </td></tr>
+              
+   <tr><td><strong>Localite        </strong></td><td><span>{{reserve.Bien.Localite.libelle }} </span>   </td></tr>
+   <tr><td> <strong>Type           </strong></td><td><span> {{reserve.Bien.Type.libelle }}     </span>   </td></tr>
+ 
+  </table>
+  </div>
+  <div id="tabs-2">
+  <table class="table table-bordred table-striped table-inverse display">
+  <tr><td><strong>Nom du propriétaire</strong></td><td><span>{{reserve.Bien.Proprietaire.Prenom}} {{reserve.Bien.Proprietaire.Nom}}     </span>    </td></tr>
+    <tr><td><strong>Numéro CNI       </strong></td><td><span>{{reserve.Bien.Proprietaire.numeroPiece}} </span> </td></tr>
+    <tr><td><strong>Addresse         </strong></td><td><span>{{reserve.Bien.Proprietaire.Addresse}}   </span>    </td></tr>
+    <tr><td><strong>Email            </strong></td><td><span>{{reserve.Bien.Proprietaire.email}}   </span></td></tr>
+    </table>
+  </div>
+  <div id="tabs-3">
+  <table class="table table-bordred table-striped table-inverse display">
+    <tr><td><strong>Nom du client    </strong></td><td><span>{{reserve.Client.Prenom}} {{reserve.Client.Nom}}</span>  </td></tr>
+   <tr><td><strong>Numéro CNI        </strong></td><td><span>{{reserve.Client.numeroPiece}}</span> </td></tr>
+    <tr><td><strong>Addresse         </strong></td><td><span>{{reserve.Client.Addresse}}    </span>  </td></tr>
+    <tr><td><strong>Email            </strong></td><td><span>{{reserve.Client.email}}   </span></td></tr>
+       <tr><td><strong>Téléphone         </strong></td><td><span>{{reserve.Client.telephone}}   </span></td></tr>
+</table>
+  </div>
+  <div id="tabs-4">
+    <p>Date de reservation:             </p>
+    <p>nombre de categorie:       </p>
+  </div>
+ {%endfor%}
+ 
+  </div>
+</div>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endblock %}

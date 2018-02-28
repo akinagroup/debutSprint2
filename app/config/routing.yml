@@ -1,0 +1,7 @@
+akina_immobilier:
+    resource: "@AkinaImmobilierBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

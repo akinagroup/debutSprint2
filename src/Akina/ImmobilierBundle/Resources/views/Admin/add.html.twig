@@ -1,0 +1,25 @@
+{% extends "::LayoutAdmin/layout.html.twig" %}
+  {% block biens %}
+  <style>
+  .btn {
+      float:right;
+  }
+  </style>
+
+<div class="form-group list-group-item" style="padding-bottom:30px">
+
+<h1>Ajout de bien avec ses photos</h1>
+{{form_start(formI)}} 
+            {{form_widget(formI)}}
+            <input class="btn btn-dark" type="submit" value="Enregistrer" /> 
+        {{form_end(formI)}}
+        </div>
+
+<div class="form-group list-group-item" style="margin-top:50px;padding-bottom:30px;margin-bottom:20px;">
+<h1>Ajout de bien</h1>
+{{form_start(formB)}} 
+            {{form_widget(formB)}}
+            <input class="btn btn-dark" type="submit" value="Enregistrer" /> 
+        {{form_end(formB)}}
+        </div>
+{% endblock %}
