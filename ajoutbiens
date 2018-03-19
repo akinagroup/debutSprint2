@@ -1,0 +1,58 @@
+public function ajoutbienAction(Request $request)
+     {
+     if ($request->isMethod('POST')){
+            if (isset($_POST['manko'])){
+            extract($_POST);
+            //var_dump($numpiece);die();
+            //$typebien=$request->get('tbien');
+            $typebien = new typebien();
+
+            $typebien->setNom($tbien);
+            $em->persist($typebien);
+            $em->flush();
+
+            //$localite=$request->get('localite');
+            $local= new localite();
+           
+            $local->setNom($localit);
+            $em->persist($local);
+            $em->flush();
+
+           /* $nomcomplet=$request->get('nomcomplet');
+            $numpiece=$request->get('numpiece');=======================
+            $adresse=$request->get('adresse');
+            $tel=$request->get('tele');
+            $email=$request->get('email');
+            $comptebanc=$request->get('comptebanc');
+            $prixprop=$request->get('prixprop');*/
+           
+            $proprietaire = new Proprietaire();
+
+            $proprietaire->setNumpiece($numpiece);
+            $proprietaire->setNomcomplet($nomcomplet);
+            $proprietaire->setAdresse($adresse);
+            $proprietaire->setTel($tele);
+            $proprietaire->setEmail($email);
+            $proprietaire->setComptebancaire($comptebanc);
+            $proprietaire->setPrixPropritaire($prixprop);
+            $em->persist($proprietaire);
+            $em->flush();
+
+
+           
+        /*    $nombien=$request->get('nombien');
+            $description=$request->get('description');
+            $prix=$request->get('pr');*/
+            $bien= new bien();
+
+            $bien->setNom($nombien);
+            $bien->setDescription($description);
+            $bien->setEtat(0);
+            $bien->setPrix($pr);
+            $em->persist($bien);
+            $em->flush();
+
+            }
+        }
+            return $this->render('AkinaImmobilierBundle:Admin:formulaireadmin.html.twig');
+        }
