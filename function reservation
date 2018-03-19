@@ -1,0 +1,14 @@
+public function listerAction(Request $request)
+    {    $em = $this->getDoctrine()->getManager();
+ 
+        $listeConfessions = $em->getRepository('AkinaImmobilierBundle:Confession')->findAll();
+          $confessions  = $this->get('knp_paginator')->paginate(
+         $listeConfessions,
+         $request->query->get('page', 1)/*le numéro de la page à afficher*/,
+           4/*nbre d'éléments par page*/
+     );
+         return $this->render('AkinaImmobilierBundle:Admin:lister.html.twig', array( 'confessions' => $confessions
+             // ...
+         ));
+ 
+    }
